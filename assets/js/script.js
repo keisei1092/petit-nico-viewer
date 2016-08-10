@@ -47,6 +47,13 @@ addressBarButtonRankingDance.addEventListener('click', function() {
   addressBar.value = rankingUrl;
 });
 
+var addressBarButtonRankingSearch = document.querySelector('.addressbar__button-search');
+addressBarButtonRankingSearch.addEventListener('click', function() {
+  var searchUrl = 'http://www.nicovideo.jp/search/' + addressBar.value;
+  webview.loadURL(searchUrl);
+  addressBar.value = searchUrl;
+});
+
 // カーソルがinputにいる時のエンターキー
 document.querySelector('.addressbar__input').onkeyup = function (e) {
   if (e.keyCode == 13) {
