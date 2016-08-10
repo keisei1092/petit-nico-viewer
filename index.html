@@ -2,26 +2,35 @@
 <html id="html">
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <style>
-      html, body, webview {
-        width: 800px;
-        height: 800px;
-        margin: 0;
-      }
-    </style>
+    <title>petit-nico-viewer</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
   </head>
   <body>
+    <div class="addressbar">
+      <input class="addressbar__input" type="text" name="url" />
+      <input class="addressbar__button" type="button" value="submit" />
+    </div>
     <webview id="niconicoView" src="http://www.nicovideo.jp/watch/sm29403657" autosize="on" plugins></webview>
   </body>
 
   <script>
     var webview = document.querySelector('webview')
-    webview.addEventListener('dom-ready', function() {
-      webview.insertCSS('#siteHeader, .videoHeaderOuter, #playerTabWrapper, #enquete-placeholder, #playlist, #wallImageContainer, #videoExplorerExpand, #invisibleAds, #bottomContentTabContainer, #footer { display: none; }')
-      webview.insertCSS('#content { padding: 0 !important; }')
-      webview.insertCSS('#playerContainerWrapper { padding: 0 !important; }')
-      webview.insertCSS('#playerContainer{ left: -8px !important; }')
+
+    var makePetitNicoView = function() {
+      if (webview.getURL().match(/sm[0-9]+/i)) {
+        webview.insertCSS('#siteHeader, .videoHeaderOuter, #playerTabWrapper, #enquete-placeholder, #playlist, #wallImageContainer, #videoExplorerExpand, #invisibleAds, #bottomContentTabContainer, #footer { display: none; }')
+        webview.insertCSS('#content { padding: 0 !important; }')
+        webview.insertCSS('#playerContainerWrapper { padding: 0 !important; }')
+        webview.insertCSS('#playerContainer{ left: -8px !important; }')
+      }
+    }
+
+    webview.addEventListener('dom-ready', makePetitNicoView)
+
+    var addressbar__button = document.querySelector('.addressbar__button')
+    addressbar__button.addEventListener('click', function() {
+      var address = document.querySelector('.addressbar__input').value
+      webview.loadURL(address)
     })
   </script>
 </html>

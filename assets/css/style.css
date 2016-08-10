@@ -1,0 +1,18 @@
+html, body, webview {
+  width: 672px;
+  height: 503px;
+  margin: 0;
+}
+
+.addressbar {
+  display: inline-flex;
+  width: 672px;
+}
+
+.addressbar__input {
+  flex: 1;
+}
+
+.addressbar__button {
+  width: 100px;
+}
