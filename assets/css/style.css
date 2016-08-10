@@ -14,5 +14,5 @@ html, body, webview {
 }
 
 .addressbar__button, .addressbar__button-vocaloid, .addressbar__button-sing, .addressbar__button-dance, .addressbar__button-search {
-  width: 60px;
+  width: 40px;
 }
