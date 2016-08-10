@@ -15,13 +15,16 @@ app.commandLine.appendSwitch('ppapi-flash-version', '22.0.0.209');
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 672,
-    height: 503,
+    // width: 672,
+    // height: 503,
+    width: 504,
+    height: 386,
     frame: true,
     resizable: true,
     alwaysOnTop: true,
     webPreferences: {
-      zoomFactor: 2.0,
+      // zoomFactor: 1.0,
+      zoomFactor: 0.75,
     }
   });
 
