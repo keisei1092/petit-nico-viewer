@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html id="html">
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <style>
+      html, body, webview {
+        width: 800px;
+        height: 800px;
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-    <div id="flash">
-      <webview id="niconicoView" src="http://www.nicovideo.jp/watch/sm29403657" autosize="on" plugins></webview>
-    </div>
+    <webview id="niconicoView" src="http://www.nicovideo.jp/watch/sm29403657" autosize="on" plugins></webview>
   </body>
 
   <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
+    var webview = document.querySelector('webview')
+    webview.addEventListener('dom-ready', function() {
+      webview.insertCSS('#siteHeader, .videoHeaderOuter, #playerTabWrapper, #enquete-placeholder, #playlist, #wallImageContainer, #videoExplorerExpand, #invisibleAds, #bottomContentTabContainer, #footer { display: none; }')
+      webview.insertCSS('#content { padding: 0 !important; }')
+      webview.insertCSS('#playerContainerWrapper { padding: 0 !important; }')
+      webview.insertCSS('#playerContainer{ left: -8px !important; }')
+    })
   </script>
 </html>
