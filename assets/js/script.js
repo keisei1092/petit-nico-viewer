@@ -26,21 +26,21 @@ addressBarButton.addEventListener('click', function() {
   webview.loadURL(addressBar.value);
 });
 
-var addressBarButtonRankingVocaloid = document.querySelector('.addressbar__button-ranking-vocaloid');
+var addressBarButtonRankingVocaloid = document.querySelector('.addressbar__button-vocaloid');
 addressBarButtonRankingVocaloid.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
   webview.loadURL(rankingUrl);
   addressBar.value = rankingUrl;
 });
 
-var addressBarButtonRankingSing = document.querySelector('.addressbar__button-ranking-sing');
+var addressBarButtonRankingSing = document.querySelector('.addressbar__button-sing');
 addressBarButtonRankingSing.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/sing';
   webview.loadURL(rankingUrl);
   addressBar.value = rankingUrl;
 });
 
-var addressBarButtonRankingDance = document.querySelector('.addressbar__button-ranking-dance');
+var addressBarButtonRankingDance = document.querySelector('.addressbar__button-dance');
 addressBarButtonRankingDance.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/dance';
   webview.loadURL(rankingUrl);
