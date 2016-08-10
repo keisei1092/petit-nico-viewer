@@ -16,6 +16,6 @@ html, body, webview {
   flex: 1;
 }
 
-.addressbar__button, .addressbar__button-ranking {
-  width: 100px;
+.addressbar__button, .addressbar__button-ranking-vocaloid, .addressbar__button-ranking-sing {
+  width: 85px;
 }
