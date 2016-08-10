@@ -40,6 +40,13 @@ addressBarButtonRankingSing.addEventListener('click', function() {
   addressBar.value = rankingUrl;
 });
 
+var addressBarButtonRankingDance = document.querySelector('.addressbar__button-ranking-dance');
+addressBarButtonRankingDance.addEventListener('click', function() {
+  var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/dance';
+  webview.loadURL(rankingUrl);
+  addressBar.value = rankingUrl;
+});
+
 // カーソルがinputにいる時のエンターキー
 document.querySelector('.addressbar__input').onkeyup = function (e) {
   if (e.keyCode == 13) {
