@@ -24,3 +24,10 @@ addressbar__button.addEventListener('click', function() {
   // WebViewでロードする
   webview.loadURL(address);
 });
+
+// カーソルがinputにいる時のエンターキー
+document.querySelector('.addressbar__input').onkeyup = function (e) {
+  if (e.keyCode == 13) {
+    document.querySelector('.addressbar__button').click();
+  }
+};
