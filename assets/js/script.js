@@ -1,5 +1,9 @@
 var webview = document.querySelector('webview');
 
+// アドレスバー
+var addressBarButton = document.querySelector('.addressbar__button');
+var addressBar = document.querySelector('.addressbar__input');
+
 var makePetitNicoView = function() {
   // 'smXXXXXXXX' をURLに含んでいたら
   if (webview.getURL().match(/sm[0-9]+/i)) {
@@ -9,25 +13,24 @@ var makePetitNicoView = function() {
     webview.insertCSS('#playerContainerWrapper { padding: 0 !important; }');
     webview.insertCSS('#playerContainer{ left: -8px !important; }');
   }
+  addressBar.value = webview.getURL();
 };
 
 // DOM読み込み完了時に
 // ニコニコ動画の動画ページかチェックしてCSSを上書き
 webview.addEventListener('dom-ready', makePetitNicoView);
 
-// アドレスバー
-var addressbar__button = document.querySelector('.addressbar__button');
 // submitがクリックされたら
-addressbar__button.addEventListener('click', function() {
-  // アドレスバーの中身を見て
-  var address = document.querySelector('.addressbar__input').value;
+addressBarButton.addEventListener('click', function() {
   // WebViewでロードする
-  webview.loadURL(address);
+  webview.loadURL(addressBar.value);
 });
 
-var addressbarButtonRanking = document.querySelector('.addressbar__button-ranking');
-addressbarButtonRanking.addEventListener('click', function() {
-  webview.loadURL('http://www.nicovideo.jp/ranking/fav/daily/vocaloid');
+var addressBarButtonRanking = document.querySelector('.addressbar__button-ranking');
+addressBarButtonRanking.addEventListener('click', function() {
+  var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
+  webview.loadURL(rankingUrl);
+  addressBar.value = rankingUrl;
 });
 
 // カーソルがinputにいる時のエンターキー
