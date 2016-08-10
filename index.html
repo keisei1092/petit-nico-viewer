@@ -5,11 +5,9 @@
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div id="flash">
+      <webview id="niconicoView" src="http://www.nicovideo.jp/watch/sm29403657" autosize="on" plugins></webview>
+    </div>
   </body>
 
   <script>
