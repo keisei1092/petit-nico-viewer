@@ -13,24 +13,5 @@
     <webview id="niconicoView" src="http://www.nicovideo.jp/watch/sm29403657" autosize="on" plugins></webview>
   </body>
 
-  <script>
-    var webview = document.querySelector('webview')
-
-    var makePetitNicoView = function() {
-      if (webview.getURL().match(/sm[0-9]+/i)) {
-        webview.insertCSS('#siteHeader, .videoHeaderOuter, #playerTabWrapper, #enquete-placeholder, #playlist, #wallImageContainer, #videoExplorerExpand, #invisibleAds, #bottomContentTabContainer, #footer { display: none; }')
-        webview.insertCSS('#content { padding: 0 !important; }')
-        webview.insertCSS('#playerContainerWrapper { padding: 0 !important; }')
-        webview.insertCSS('#playerContainer{ left: -8px !important; }')
-      }
-    }
-
-    webview.addEventListener('dom-ready', makePetitNicoView)
-
-    var addressbar__button = document.querySelector('.addressbar__button')
-    addressbar__button.addEventListener('click', function() {
-      var address = document.querySelector('.addressbar__input').value
-      webview.loadURL(address)
-    })
-  </script>
+  <script src="./assets/js/script.js"></script>
 </html>
