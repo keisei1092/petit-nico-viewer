@@ -1,15 +1,12 @@
 html, body, webview {
-  /* width: 672px; */
-  /* height: 503px; */
-  width: 504px;
-  height: 386px;
+  width: 672px;
+  height: 503px;
   margin: 0;
 }
 
 .addressbar {
   display: inline-flex;
-  /* width: 672px; */
-  width: 504px;
+  width: 672px;
 }
 
 .addressbar__input {
