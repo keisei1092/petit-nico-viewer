@@ -1,8 +1,8 @@
 var webview = document.querySelector('webview');
 
 // アドレスバー
-var addressBarButton = document.querySelector('.addressbar__button');
 var addressBar = document.querySelector('.addressbar__input');
+var addressBarButton = document.querySelector('.addressbar__button');
 
 var makePetitNicoView = function() {
   // 'smXXXXXXXX' をURLに含んでいたら
