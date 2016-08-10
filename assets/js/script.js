@@ -25,6 +25,11 @@ addressbar__button.addEventListener('click', function() {
   webview.loadURL(address);
 });
 
+var addressbarButtonRanking = document.querySelector('.addressbar__button-ranking');
+addressbarButtonRanking.addEventListener('click', function() {
+  webview.loadURL('http://www.nicovideo.jp/ranking/fav/daily/vocaloid');
+});
+
 // カーソルがinputにいる時のエンターキー
 document.querySelector('.addressbar__input').onkeyup = function (e) {
   if (e.keyCode == 13) {

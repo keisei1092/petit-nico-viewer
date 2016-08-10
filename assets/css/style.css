@@ -13,6 +13,6 @@ html, body, webview {
   flex: 1;
 }
 
-.addressbar__button {
+.addressbar__button, .addressbar__button-ranking {
   width: 100px;
 }
