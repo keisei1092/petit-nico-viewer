@@ -26,9 +26,16 @@ addressBarButton.addEventListener('click', function() {
   webview.loadURL(addressBar.value);
 });
 
-var addressBarButtonRanking = document.querySelector('.addressbar__button-ranking');
-addressBarButtonRanking.addEventListener('click', function() {
+var addressBarButtonRankingVocaloid = document.querySelector('.addressbar__button-ranking-vocaloid');
+addressBarButtonRankingVocaloid.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
+  webview.loadURL(rankingUrl);
+  addressBar.value = rankingUrl;
+});
+
+var addressBarButtonRankingSing = document.querySelector('.addressbar__button-ranking-sing');
+addressBarButtonRankingSing.addEventListener('click', function() {
+  var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/sing';
   webview.loadURL(rankingUrl);
   addressBar.value = rankingUrl;
 });
