@@ -37,6 +37,12 @@ var randomSelect = function() {
   }
 };
 
+// smXXXXXXXX を抽出
+var returnVideoId = function(url) {
+  var url = webview.getURL();
+  return url.match(/sm\d+/);
+};
+
 // DOM読み込み完了時に
 // ニコニコ動画の動画ページかチェックしてCSSを上書き
 webview.addEventListener('dom-ready', makePetitNicoView);
@@ -106,12 +112,19 @@ addressBarButtonRankingSearch.addEventListener('click', function() {
   addressBar.value = searchUrl;
 });
 
+// 関連動画
+var addressBarButtonRankingRelated = document.querySelector('.addressbar__button-related');
+addressBarButtonRankingRelated.addEventListener('click', function() {
+  var videoId = returnVideoId(webview.getURL());
+  var searchUrl = 'http://www.nicovideo.jp/search/' + videoId;
+  webview.loadURL(searchUrl);
+  addressBar.value = searchUrl;
+});
+
 // Tweet
 var addressBarButtonRankingTweet = document.querySelector('.addressbar__button-tweet');
 addressBarButtonRankingTweet.addEventListener('click', function() {
-  // smXXXXXXXX を抽出
-  var url = webview.getURL();
-  var videoId = url.match(/sm\d+/);
+  var videoId = returnVideoId(webview.getURL());
   shell.openExternal('https://twitter.com/share?text=' + webview.getTitle() + '&url=' + webview.getURL() + '&hashtags=' + videoId);
 });
 
