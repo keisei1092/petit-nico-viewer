@@ -28,6 +28,12 @@ function createWindow () {
     }
   });
 
+  // 動的にタイトルを書き換える
+  // https://www.xplatform.rocks/2015/05/06/when-electrons-window-settitle-keeps-driving-you-crazy/
+  // mainWindow.webContents.on('did-finish-load', () => {
+  //   mainWindow.setTitle(app.getTitle());
+  // });
+
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 

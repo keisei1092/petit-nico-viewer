@@ -13,6 +13,12 @@ html, body, webview {
   flex: 1;
 }
 
-.addressbar__button, .addressbar__button-vocaloid, .addressbar__button-sing, .addressbar__button-dance, .addressbar__button-search {
+.addressbar__button,
+.addressbar__button-vocaloid, .addressbar__button-vocaloid-random,
+.addressbar__button-sing, .addressbar__button-sing-random,
+.addressbar__button-dance, .addressbar__button-dance-random,
+.addressbar__button-search {
   width: 40px;
+  background-color: #FFF;
+  border-style: none;
 }

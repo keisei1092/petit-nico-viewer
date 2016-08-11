@@ -3,6 +3,7 @@ var webview = document.querySelector('webview');
 // アドレスバー
 var addressBar = document.querySelector('.addressbar__input');
 var addressBarButton = document.querySelector('.addressbar__button');
+var title;
 
 var makePetitNicoView = function() {
   // 'smXXXXXXXX' をURLに含んでいたら
@@ -16,6 +17,25 @@ var makePetitNicoView = function() {
   addressBar.value = webview.getURL();
 };
 
+// ランダムで曲選択
+// ここで.videoRankingの中からどれか一つを選択して遷移する
+var randomSelect = function() {
+  var id = setTimeout(randomSelect, 2000);
+  if (webview.getTitle !== title) {
+    webview.executeJavaScript(
+      (function(){
+        var candidates = document.getElementsByClassName('videoRanking');
+        var seed = Math.floor(Math.random() * candidates.length);
+        var result = candidates[seed];
+        location.href = 'http://www.nicovideo.jp/watch/' + result.dataset.id;
+      })
+      .toString().replace(/function\s*\(\)\{/, '')
+      .replace(/}$/,'')
+      .trim()
+    );
+  }
+};
+
 // DOM読み込み完了時に
 // ニコニコ動画の動画ページかチェックしてCSSを上書き
 webview.addEventListener('dom-ready', makePetitNicoView);
@@ -26,6 +46,7 @@ addressBarButton.addEventListener('click', function() {
   webview.loadURL(addressBar.value);
 });
 
+// VOCALOID
 var addressBarButtonRankingVocaloid = document.querySelector('.addressbar__button-vocaloid');
 addressBarButtonRankingVocaloid.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
@@ -33,6 +54,16 @@ addressBarButtonRankingVocaloid.addEventListener('click', function() {
   addressBar.value = rankingUrl;
 });
 
+// VOCALOID Random
+var addressBarButtonRankingVocaloidRandom = document.querySelector('.addressbar__button-vocaloid-random');
+addressBarButtonRankingVocaloidRandom.addEventListener('click', function() {
+  var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
+  title = webview.getTitle();
+  webview.loadURL(rankingUrl);
+  setTimeout(randomSelect, 2000);
+});
+
+// 歌ってみた
 var addressBarButtonRankingSing = document.querySelector('.addressbar__button-sing');
 addressBarButtonRankingSing.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/sing';
@@ -40,6 +71,16 @@ addressBarButtonRankingSing.addEventListener('click', function() {
   addressBar.value = rankingUrl;
 });
 
+// 歌ってみた Random
+var addressBarButtonRankingSingRandom = document.querySelector('.addressbar__button-sing-random');
+addressBarButtonRankingSingRandom.addEventListener('click', function() {
+  var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/sing';
+  title = webview.getTitle();
+  webview.loadURL(rankingUrl);
+  setTimeout(randomSelect, 1000);
+});
+
+// 踊ってみた
 var addressBarButtonRankingDance = document.querySelector('.addressbar__button-dance');
 addressBarButtonRankingDance.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/dance';
@@ -47,6 +88,16 @@ addressBarButtonRankingDance.addEventListener('click', function() {
   addressBar.value = rankingUrl;
 });
 
+// 踊ってみた Random
+var addressBarButtonRankingDanceRandom = document.querySelector('.addressbar__button-dance-random');
+addressBarButtonRankingDanceRandom.addEventListener('click', function() {
+  var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/dance';
+  title = webview.getTitle();
+  webview.loadURL(rankingUrl);
+  setTimeout(randomSelect, 1000);
+});
+
+// 検索
 var addressBarButtonRankingSearch = document.querySelector('.addressbar__button-search');
 addressBarButtonRankingSearch.addEventListener('click', function() {
   var searchUrl = 'http://www.nicovideo.jp/search/' + addressBar.value;
@@ -60,3 +111,4 @@ document.querySelector('.addressbar__input').onkeyup = function (e) {
     document.querySelector('.addressbar__button').click();
   }
 };
+
