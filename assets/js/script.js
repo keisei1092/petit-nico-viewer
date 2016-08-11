@@ -54,16 +54,16 @@ addressBarButton.addEventListener('click', function() {
 });
 
 // VOCALOID
-var addressBarButtonRankingVocaloid = document.querySelector('.addressbar__button-vocaloid');
-addressBarButtonRankingVocaloid.addEventListener('click', function() {
+var functionsButtonRankingVocaloid = document.querySelector('.functions__button-vocaloid');
+functionsButtonRankingVocaloid.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
   webview.loadURL(rankingUrl);
   addressBar.value = rankingUrl;
 });
 
 // VOCALOID Random
-var addressBarButtonRankingVocaloidRandom = document.querySelector('.addressbar__button-vocaloid-random');
-addressBarButtonRankingVocaloidRandom.addEventListener('click', function() {
+var functionsButtonRankingVocaloidRandom = document.querySelector('.functions__button-vocaloid-random');
+functionsButtonRankingVocaloidRandom.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
   title = webview.getTitle();
   webview.loadURL(rankingUrl);
@@ -71,16 +71,16 @@ addressBarButtonRankingVocaloidRandom.addEventListener('click', function() {
 });
 
 // 歌ってみた
-var addressBarButtonRankingSing = document.querySelector('.addressbar__button-sing');
-addressBarButtonRankingSing.addEventListener('click', function() {
+var functionsButtonRankingSing = document.querySelector('.functions__button-sing');
+functionsButtonRankingSing.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/sing';
   webview.loadURL(rankingUrl);
   addressBar.value = rankingUrl;
 });
 
 // 歌ってみた Random
-var addressBarButtonRankingSingRandom = document.querySelector('.addressbar__button-sing-random');
-addressBarButtonRankingSingRandom.addEventListener('click', function() {
+var functionsButtonRankingSingRandom = document.querySelector('.functions__button-sing-random');
+functionsButtonRankingSingRandom.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/sing';
   title = webview.getTitle();
   webview.loadURL(rankingUrl);
@@ -88,16 +88,16 @@ addressBarButtonRankingSingRandom.addEventListener('click', function() {
 });
 
 // 踊ってみた
-var addressBarButtonRankingDance = document.querySelector('.addressbar__button-dance');
-addressBarButtonRankingDance.addEventListener('click', function() {
+var functionsButtonRankingDance = document.querySelector('.functions__button-dance');
+functionsButtonRankingDance.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/dance';
   webview.loadURL(rankingUrl);
-  addressBar.value = rankingUrl;
+  functions.value = rankingUrl;
 });
 
 // 踊ってみた Random
-var addressBarButtonRankingDanceRandom = document.querySelector('.addressbar__button-dance-random');
-addressBarButtonRankingDanceRandom.addEventListener('click', function() {
+var functionsButtonRankingDanceRandom = document.querySelector('.functions__button-dance-random');
+functionsButtonRankingDanceRandom.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/dance';
   title = webview.getTitle();
   webview.loadURL(rankingUrl);
@@ -112,9 +112,25 @@ addressBarButtonRankingSearch.addEventListener('click', function() {
   addressBar.value = searchUrl;
 });
 
+// YouTube
+var functionsButtonRankingYoutube = document.querySelector('.functions__button-youtube');
+functionsButtonRankingYoutube.addEventListener('click', function() {
+  var url = 'https://www.youtube.com/';
+  webview.loadURL(url);
+  addressBar.value = url;
+});
+
+// アニメ
+var functionsButtonRankingAnime = document.querySelector('.functions__button-anime');
+functionsButtonRankingAnime.addEventListener('click', function() {
+  var url = 'http://ch.nicovideo.jp/portal/anime';
+  webview.loadURL(url);
+  addressBar.value = url;
+});
+
 // 関連動画
-var addressBarButtonRankingRelated = document.querySelector('.addressbar__button-related');
-addressBarButtonRankingRelated.addEventListener('click', function() {
+var functionsButtonRankingRelated = document.querySelector('.functions__button-related');
+functionsButtonRankingRelated.addEventListener('click', function() {
   var videoId = returnVideoId(webview.getURL());
   var searchUrl = 'http://www.nicovideo.jp/search/' + videoId;
   webview.loadURL(searchUrl);
@@ -122,15 +138,15 @@ addressBarButtonRankingRelated.addEventListener('click', function() {
 });
 
 // mp3
-var addressBarButtonRankingMp3 = document.querySelector('.addressbar__button-mp3');
-addressBarButtonRankingMp3.addEventListener('click', function() {
+var functionsButtonRankingMp3 = document.querySelector('.functions__button-mp3');
+functionsButtonRankingMp3.addEventListener('click', function() {
   var exec = require('child_process').exec;
   exec('youtube-dl -x --audio-format mp3 ' + webview.getURL(), function(err, stdout, stderr) {});
 });
 
 // Tweet
-var addressBarButtonRankingTweet = document.querySelector('.addressbar__button-tweet');
-addressBarButtonRankingTweet.addEventListener('click', function() {
+var functionsButtonRankingTweet = document.querySelector('.functions__button-tweet');
+functionsButtonRankingTweet.addEventListener('click', function() {
   var videoId = returnVideoId(webview.getURL());
   shell.openExternal('https://twitter.com/share?text=' + webview.getTitle() + '&url=' + webview.getURL() + '&hashtags=' + videoId);
 });

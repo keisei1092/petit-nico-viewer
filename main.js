@@ -15,7 +15,7 @@ app.commandLine.appendSwitch('ppapi-flash-version', '22.0.0.209');
 function createWindow () {
   var zoomFactors = [ 1.0, 0.75 ];
   var zoomFactorsWidth = [ 672, 504 ];
-  var zoomFactorsHeight = [ 503, 386 ];
+  var zoomFactorsHeight = [ 503, 411 ];
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -44,7 +44,19 @@ function createWindow () {
     value: 'ja-jp'
   };
 
+  var cookieForYoutube = {
+    url: 'https://.youtube.com',
+    name: 'PREF',
+    value: 'al=ja&hl=ja'
+  };
+
   mainWindow.webContents.session.cookies.set(cookieForNiconico, function(error) {
+    if (error) {
+      console.log(error);
+    }
+  });
+
+  mainWindow.webContents.session.cookies.set(cookieForYoutube, function(error) {
     if (error) {
       console.log(error);
     }
