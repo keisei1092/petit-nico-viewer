@@ -42,21 +42,18 @@ Zoom Factor
 
 ```javascript
 mainWindow = new BrowserWindow({
-  // width: 672,
-  // height: 503,
-  width: 504,
-  height: 386,
+  width: zoomFactorsWidth[1],
+  height: zoomFactorsHeight[1],
   frame: true,
   resizable: true,
   alwaysOnTop: true,
   webPreferences: {
-    // zoomFactor: 1.0,
-    zoomFactor: 0.75,
+    zoomFactor: zoomFactors[1],
   }
 });
 ```
 
-コメントアウトしてあるキーを切り替えると拡大率を調整できます
+配列のインデックスを切り替えると拡大率を調整できます
 
 最前面をやめたい場合
 --------------------
