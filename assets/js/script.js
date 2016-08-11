@@ -121,6 +121,13 @@ addressBarButtonRankingRelated.addEventListener('click', function() {
   addressBar.value = searchUrl;
 });
 
+// mp3
+var addressBarButtonRankingMp3 = document.querySelector('.addressbar__button-mp3');
+addressBarButtonRankingMp3.addEventListener('click', function() {
+  var exec = require('child_process').exec;
+  exec('youtube-dl -x --audio-format mp3 ' + webview.getURL(), function(err, stdout, stderr) {});
+});
+
 // Tweet
 var addressBarButtonRankingTweet = document.querySelector('.addressbar__button-tweet');
 addressBarButtonRankingTweet.addEventListener('click', function() {
