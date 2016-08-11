@@ -59,7 +59,7 @@ addressBarButtonRankingVocaloidRandom.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
   title = webview.getTitle();
   webview.loadURL(rankingUrl);
-  setTimeout(randomSelect, 2000); // 読み込まれなかったらバッファ時間をもっと大きくしてください
+  setTimeout(randomSelect, 1000); // 読み込まれなかったらバッファ時間をもっと大きくしてください
 });
 
 // 歌ってみた
@@ -76,7 +76,7 @@ addressBarButtonRankingSingRandom.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/sing';
   title = webview.getTitle();
   webview.loadURL(rankingUrl);
-  setTimeout(randomSelect, 1000);
+  setTimeout(randomSelect, 1000); // 読み込まれなかったらバッファ時間をもっと大きくしてください
 });
 
 // 踊ってみた
@@ -93,7 +93,7 @@ addressBarButtonRankingDanceRandom.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/dance';
   title = webview.getTitle();
   webview.loadURL(rankingUrl);
-  setTimeout(randomSelect, 1000);
+  setTimeout(randomSelect, 1000); // 読み込まれなかったらバッファ時間をもっと大きくしてください
 });
 
 // 検索
