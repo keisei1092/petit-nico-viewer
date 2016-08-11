@@ -1,3 +1,5 @@
+const {shell} = require('electron');
+
 var webview = document.querySelector('webview');
 
 // アドレスバー
@@ -102,6 +104,15 @@ addressBarButtonRankingSearch.addEventListener('click', function() {
   var searchUrl = 'http://www.nicovideo.jp/search/' + addressBar.value;
   webview.loadURL(searchUrl);
   addressBar.value = searchUrl;
+});
+
+// Tweet
+var addressBarButtonRankingTweet = document.querySelector('.addressbar__button-tweet');
+addressBarButtonRankingTweet.addEventListener('click', function() {
+  // smXXXXXXXX を抽出
+  var url = webview.getURL();
+  var videoId = url.match(/sm\d+/);
+  shell.openExternal('https://twitter.com/share?text=' + webview.getTitle() + '&url=' + webview.getURL() + '&hashtags=' + videoId);
 });
 
 // カーソルがinputにいる時のエンターキー

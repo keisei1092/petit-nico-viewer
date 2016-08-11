@@ -17,7 +17,8 @@ html, body, webview {
 .addressbar__button-vocaloid, .addressbar__button-vocaloid-random,
 .addressbar__button-sing, .addressbar__button-sing-random,
 .addressbar__button-dance, .addressbar__button-dance-random,
-.addressbar__button-search {
+.addressbar__button-search,
+.addressbar__button-tweet {
   width: 40px;
   background-color: #FFF;
   border-style: none;
