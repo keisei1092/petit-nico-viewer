@@ -20,7 +20,6 @@ var makePetitNicoView = function() {
 // ランダムで曲選択
 // ここで.videoRankingの中からどれか一つを選択して遷移する
 var randomSelect = function() {
-  var id = setTimeout(randomSelect, 2000);
   if (webview.getTitle !== title) {
     webview.executeJavaScript(
       (function(){
@@ -60,7 +59,7 @@ addressBarButtonRankingVocaloidRandom.addEventListener('click', function() {
   var rankingUrl = 'http://www.nicovideo.jp/ranking/fav/daily/vocaloid';
   title = webview.getTitle();
   webview.loadURL(rankingUrl);
-  setTimeout(randomSelect, 2000);
+  setTimeout(randomSelect, 2000); // 読み込まれなかったらバッファ時間をもっと大きくしてください
 });
 
 // 歌ってみた
