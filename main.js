@@ -13,18 +13,19 @@ app.commandLine.appendSwitch('ppapi-flash-path', __dirname + '/PepperFlash/Peppe
 app.commandLine.appendSwitch('ppapi-flash-version', '22.0.0.209');
 
 function createWindow () {
+  var zoomFactors = [ 1.0, 0.75 ];
+  var zoomFactorsWidth = [ 672, 504 ];
+  var zoomFactorsHeight = [ 503, 386 ];
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    // width: 672,
-    // height: 503,
-    width: 504,
-    height: 386,
+    width: zoomFactorsWidth[1],
+    height: zoomFactorsHeight[1],
     frame: true,
     resizable: true,
     alwaysOnTop: true,
     webPreferences: {
-      // zoomFactor: 1.0,
-      zoomFactor: 0.75,
+      zoomFactor: zoomFactors[1]
     }
   });
 

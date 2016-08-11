@@ -1,6 +1,6 @@
 html, body, webview {
-  width: 672px;
-  height: 503px;
+  width: 672px; /* 672, 504 */
+  height: 503px; /* 503, 386 */
   margin: 0;
 }
 
