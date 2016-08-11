@@ -38,6 +38,18 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
+  var cookieForNiconico = {
+    url: 'http://www.nicovideo.jp',
+    name: 'lang',
+    value: 'ja-jp'
+  };
+
+  mainWindow.webContents.session.cookies.set(cookieForNiconico, function(error) {
+    if (error) {
+      console.log(error);
+    }
+  });
+
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 
