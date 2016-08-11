@@ -12,6 +12,7 @@ petit-nico-viewer
 * カテゴリランキングからランダムで1つ動画をピックアップ
 * 単語検索機能
 * アドレス直打ち
+* YouTubeやニコニコアニメチャンネルへの遷移ボタン
 * 関連動画検索
   * 動画IDから引きます
 * mp3を保存
@@ -56,3 +57,21 @@ mainWindow = new BrowserWindow({
 ```
 
 コメントアウトしてあるキーを切り替えると拡大率を調整できます
+
+最前面をやめたい場合
+--------------------
+
+**main.js**
+
+```javascript
+// Create the browser window.
+mainWindow = new BrowserWindow({
+  width: zoomFactorsWidth[1],
+  height: zoomFactorsHeight[1],
+  frame: true,
+  resizable: true,
+  alwaysOnTop: true,
+               ^^^^ ここを false にしてください
+  ...
+});
+```
