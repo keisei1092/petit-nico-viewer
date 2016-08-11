@@ -15,7 +15,7 @@ app.commandLine.appendSwitch('ppapi-flash-version', '22.0.0.209');
 function createWindow () {
   var zoomFactors = [ 1.0, 0.75 ];
   var zoomFactorsWidth = [ 672, 504 ];
-  var zoomFactorsHeight = [ 503, 386 ];
+  var zoomFactorsHeight = [ 503, 411 ];
 
   // Create the browser window.
   mainWindow = new BrowserWindow({

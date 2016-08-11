@@ -13,15 +13,27 @@ html, body, webview {
   flex: 1;
 }
 
-.addressbar__button,
-.addressbar__button-vocaloid, .addressbar__button-vocaloid-random,
-.addressbar__button-sing, .addressbar__button-sing-random,
-.addressbar__button-dance, .addressbar__button-dance-random,
-.addressbar__button-search,
-.addressbar__button-related,
-.addressbar__button-mp3,
-.addressbar__button-tweet {
-  width: 35px;
+.addressbar__button, .addressbar__button-search {
+  width: 60px;
+  background-color: #FFF;
+  border-style: none;
+}
+
+.functions {
+  display: inline-flex;
+  width: 672px;
+}
+
+.functions__button-vocaloid,
+.functions__button-vocaloid-random,
+.functions__button-sing, .functions__button-sing-random,
+.functions__button-dance, .functions__button-dance-random,
+.functions__button-youtube,
+.functions__button-anime,
+.functions__button-related,
+.functions__button-mp3,
+.functions__button-tweet {
+  flex: 1;
   background-color: #FFF;
   border-style: none;
 }
