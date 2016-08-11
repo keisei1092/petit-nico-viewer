@@ -72,3 +72,12 @@ mainWindow = new BrowserWindow({
   ...
 });
 ```
+
+Save as mp3
+-----------
+
+[youtube-dl](https://rg3.github.io/youtube-dl/)が必要です
+
+```sh
+brew install youtube-dl
+```
