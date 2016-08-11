@@ -9,7 +9,7 @@ var title;
 
 var makePetitNicoView = function() {
   // 'smXXXXXXXX' をURLに含んでいたら
-  if (webview.getURL().match(/sm[0-9]+/i)) {
+  if (webview.getURL().match(/.+nicovideo.jp\/watch\/.+/i)) {
     // 動画のDOM以外を極力display: noneにする
     webview.insertCSS('#siteHeader, .videoHeaderOuter, #playerTabWrapper, #enquete-placeholder, #playlist, #wallImageContainer, #videoExplorerExpand, #invisibleAds, #bottomContentTabContainer, #footer { display: none; }');
     webview.insertCSS('#content { padding: 0 !important; }');
